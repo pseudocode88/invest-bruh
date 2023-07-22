@@ -1,0 +1,101 @@
+Filename: SpotTradeDBHelper
+Lanugage: Javascript
+File Type: Javascript Module
+import (use default): 
+    - AsyncNedb = nedb-async(https://github.com/Akumzy/nedb-async/tree/master)
+
+dataStoreFiles = {
+    coinindex: join 'db/','spot-trade-coin-index.db',
+    transaction: join 'db/','spot-trade-transaction-history.db'
+};
+
+Type Transaction
+- asset type string
+- unit type float
+- entryprice type float
+- date type date
+
+Type AssetSummary
+- asset type string
+- unit type float
+- entryprice type float
+
+constructor
+- Take the filenames from dataStoreFilenames object
+- initialise all datastore using anedb plugin and store it an private object called `DB` with key same as the one in `dataStoreFiles`.
+
+
+function getAssetSummary 
+    Return: array of AssetSummary   {
+
+        - Get all record from `DB.transaction` which returns an array of object of type `Transaction`. sample below
+        ```
+            [
+                {
+                    asset: "uniswap", 
+                    unit: 10,
+                    entryprice: 2.3,
+                    date: "12 jun 2023"
+                },
+                {
+                    asset: "uniswap", 
+                    unit: 20,
+                    entryprice: 3.1,
+                    date: "12 jun 2023"
+                }, 
+                {
+                    asset:"luna", 
+                    unit: 30,
+                    entryprice: 10,
+                    date: "12 jun 2023"
+                },
+                {
+                    asset:"luna", 
+                    unit: 20",
+                    entryprice: 12,
+                    date: "12 jun 2023"
+                },
+                {
+                    asset:"luna", 
+                    unit: 20",
+                    entryprice: 17,
+                    date: "12 jun 2023"
+                },
+                {
+                    asset:"bitcoin",
+                    unit: 40,
+                    entryprice: 28979.67,
+                    date: "12 jun 2023"
+                }
+            ]
+        ```
+        - upon getting the array, find all the array element with same asset name and transform them into type of `AssetSummary` where { asset: asset name, unit: sum of all unit, entryprice: average of all entryprices } and return them as an Array. Sample below
+        ```
+        [
+            {
+                asset: "uniswap", 
+                unit: 30,
+                entryprice: 2.7
+            },
+            {
+                asset: "luna", 
+                unit: 50,
+                entryprice: 13
+            },
+            {
+                asset:"bitcoin",
+                unit:40,
+                entryprice: 28979.67
+            }
+        ]
+        ```
+    }
+
+function addTrasactionHistory 
+    Params: Transaction of type Transaction
+    Return: boolean   {
+        - call asyncInsert function of anedb
+            - from instance DB.transaction (refer private object)
+            - pass Transaction as params
+        - return true on success, otherwise false
+    }

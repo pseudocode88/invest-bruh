@@ -1,0 +1,28 @@
+@import '../../shared_styles/typography.scss';
+@import '../../shared_styles/layout.scss';
+
+nav {
+    width: 100%;
+    border-bottom: 1px solid var(--static-border-primary);
+    @include flex(row, 32px);
+    padding: 12px 32px;
+
+    & li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include label-s;
+        cursor: pointer;
+        color: var(--content-secondary);
+
+        &:hover {
+            color: var(--content-brand);
+        }
+    }
+}
+
+.Navbar {
+    &__Selected {
+        color: var(--content-brand);
+    }
+}

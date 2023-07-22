@@ -1,0 +1,191 @@
+/** Display Typography **/
+
+@mixin display-xl {
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 73px;
+    letter-spacing: -0.02em;
+}
+
+@mixin display-l {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+@mixin display-m {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+@mixin display-s {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+@mixin display-xs {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+@mixin display-xxs {
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+
+/** Body Typography **/
+
+@mixin body-xl {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+@mixin body-l {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+@mixin body-m {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+@mixin body-s {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/** Label **/
+@mixin annote-xxxl {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.55;
+}
+
+@mixin annote-xxl {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.55;
+}
+
+@mixin annote-xl {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+@mixin annote-l {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+@mixin annote-m {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+@mixin annote-s {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+
+/** Label **/
+@mixin label-l {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+@mixin label-m {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+@mixin label-s {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+@mixin label-xs {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+
+/** Strong **/
+
+@mixin strong-xxxl {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.55;
+}
+
+@mixin strong-xxl {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.55;
+}
+
+@mixin strong-xl {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 1.55;
+}
+
+@mixin strong-l {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+@mixin strong-m {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+@mixin strong-s {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+@mixin strong-xs {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@mixin strong-xxs {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/** Helpers **/
+
+@mixin wordbreak-preline {
+    word-wrap: break-word;
+    white-space: pre-line;
+}

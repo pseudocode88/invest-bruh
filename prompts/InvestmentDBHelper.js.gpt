@@ -1,0 +1,95 @@
+Task: Generate Code
+Filename: InvesmentDBHelper
+Lanugage: Javascript
+File Type: Javascript Module
+
+----
+
+imports {
+    - AsyncNedb = nedb-async(https://github.com/Akumzy/nedb-async/tree/master), use default
+    - Moment = moment(https://momentjs.com/), use default
+}
+
+dataStoreFilePaths = {
+    history: join (project root, 'db', 'investment-history.db')
+};
+
+constructor {
+    - iterate the filenames from `dataStoreFilenames` object
+    - initialise all datastore using anedb plugin
+    - store it an private object called `DB` with key same as the one in `dataStoreFiles`
+}
+    
+function insertInvestment
+    params (entry of type Investment)
+    return boolean  {
+        - call asyncInsert function of AsyncNedb
+            - from instance DB.history (refer private object)
+            - pass Entry as params
+    }
+
+function getInvestment
+    return refer#InvestmentsPerYear    {
+        - find all record from `DB.histoty` which returns an array of object of type refer#Investment.
+        - upon getting the array, find all the array element with same year and transform them into refer#InvestmentPerYear where { year: year, investments: Array of all investment match the selected year} and return them as an refer#InvestmentsPerYear
+        - move the array transformation logic to a seperate function for better redability
+    } 
+
+----
+
+Mocks for reference, no need to generate below
+
+#Investment = {
+        date: " Jun 23rd 2023"
+        category: "crypto"
+        amount: 234.23
+        source: "Monthly Investent"
+    }
+
+#ArrayofInvestment = [
+    {
+        date: " Jun 23rd 2023"
+        category: "crypto"
+        amount: 234.23
+        source: "Monthly Investent"
+    },{
+        date: " Jun 21st 2023"
+        category: "crypto"
+        amount: 1098
+        note: "Grativity"
+    },{
+        date: " Jun 18th 2022"
+        category: "crypto"
+        amount: 600.23
+        note: "Sold GoTo stocks"
+    }
+]
+
+#InvestmentsPerYear = [
+    {
+        year: 2023,
+        investments: [
+            {
+                date: " Jun 23rd 2023"
+                category: "crypto"
+                amount: 234.23
+                source: "Monthly Investent"
+            },{
+                date: " Jun 21st 2023"
+                category: "crypto"
+                amount: 1098
+                note: "Grativity"
+            }
+        ]
+    },{
+        year: 2022,
+        investments: [
+            {
+                date: " Jun 18th 2022"
+                category: "crypto"
+                amount: 600.23
+                note: "Sold GoTo stocks"
+            }
+        ]
+    }
+]
