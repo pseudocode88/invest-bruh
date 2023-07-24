@@ -25,7 +25,6 @@ export const PerYear = ({ perYearData }) => {
                     <ol className={styles.Investment__Record}>
                         <li className={styles.Investment__Record_Title}>
                             <div className={styles.cell_date}>Date</div>
-                            <div>Investment category</div>
                             <div>Sourced from</div>
                             <div className={styles.cell_amount}>Amount</div>
                         </li>
@@ -50,7 +49,6 @@ export const PerYear = ({ perYearData }) => {
             return (
                 <li className={styles.Investment__Record_Entry} key={index}>
                     <div className={styles.cell_date}>{moment(entry.date).format('DD MMM YYYY')}</div>
-                    <div>{entry.category}</div>
                     <div>{entry.source}</div>
                     <div className={styles.cell_amount}>${entry.amount}</div>
                 </li >

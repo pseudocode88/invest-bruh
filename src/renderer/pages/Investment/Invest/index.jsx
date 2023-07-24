@@ -1,5 +1,4 @@
 import formstyles from "../../../shared_styles/form.modules.scss";
-import Select from 'react-select'
 import { TextInput } from "renderer/components/TextInput";
 import moment from "moment";
 import { Button } from "renderer/components/Button";
@@ -8,18 +7,11 @@ import { useEffect, useState } from 'react';
 
 const InvestForm = () => {
     const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-    const [category, setCategory] = useState('Crypto');
     const [amount, setAmount] = useState(0);
     const [source, setSource] = useState('');
 
-    const options = [
-        { value: 'Crypto', label: 'Crypto' },
-        { value: 'Stocks', label: 'Stocks' },
-        { value: 'Mutual Funds', label: 'Mutual Funds' }
-    ];
 
     const handleDateChange = (e) => { setDate(e.target.value); }
-    const handleCategoryChange = (e) => { setCategory(e.value); }
     const handleAmountChange = (e) => { setAmount(e.target.value); }
     const handleSourceChange = (e) => { setSource(e.target.value); }
 
@@ -29,7 +21,6 @@ const InvestForm = () => {
         if (isValid()) {
             window.electron.ipcRenderer.send('investment-add-new', {
                 date: date,
-                category: category,
                 amount: amount,
                 source: source
             });
@@ -55,10 +46,10 @@ const InvestForm = () => {
 
             <div className={formstyles.Form__Control}>
                 <div className={formstyles.Form__LabelWrap}>
-                    <label className={formstyles.Form__Label}>Category</label>
-                    <p className={formstyles.Form__LabelHelper}>Select the category that you are going to invest on</p>
+                    <label className={formstyles.Form__Label}>Source</label>
+                    <p className={formstyles.Form__LabelHelper}>For tracking purpose its good to add from where you source the amount for investment</p>
                 </div>
-                <Select options={options} defaultValue={options[0]} onChange={handleCategoryChange} className="react-select-container" classNamePrefix="react-select" />
+                <TextInput type="text" placeholder="Eg: Monthly investment" value={source} defaultValue="10" onChange={handleSourceChange} />
             </div>
 
             <div className={formstyles.Form__Control}>
@@ -67,14 +58,6 @@ const InvestForm = () => {
                     <p className={formstyles.Form__LabelHelper}>The amount you planning to investing in USD</p>
                 </div>
                 <TextInput type="number" placeholder="100" value={amount} onChange={handleAmountChange} />
-            </div>
-
-            <div className={formstyles.Form__Control}>
-                <div className={formstyles.Form__LabelWrap}>
-                    <label className={formstyles.Form__Label}>Source</label>
-                    <p className={formstyles.Form__LabelHelper}>For tracking purpose its good to add from where you source the amount for investment</p>
-                </div>
-                <TextInput type="text" placeholder="Eg: Monthly investment" value={source} defaultValue="10" onChange={handleSourceChange} />
             </div>
 
             <div className={formstyles.Form__Control}>
