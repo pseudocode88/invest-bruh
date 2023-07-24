@@ -1,0 +1,66 @@
+.react-select-container {
+    background: var(--static-surface-secondary);
+}
+
+.react-select__option {
+    background: var(--static-surface-secondary) !important;
+    color: var(--content-secondary);
+    font-size: 14px !important;
+}
+
+.react-select__option:hover {
+    background: var(--static-surface-tertiary) !important;
+    color: var(--content-secondary);
+}
+
+.react-select__menu {
+    background: var(--static-surface-secondary);
+    color: var(--content-secondary);
+}
+
+
+.react-select__menu-list {
+    background: var(--static-surface-secondary);
+    color: var(--content-secondary);
+    /* box-shadow: 0px 0px 3px 0px #fff; */
+    /* border-radius: 8px; */
+}
+
+.react-select__placeholder {
+    color: var(--content-muted);
+}
+
+.react-select__control {
+    background: var(--int-surface-primary-default) !important;
+    color: var(--content-secondary);
+    border-color: var(--int-border-default) !important;
+    height: 39.5px;
+}
+
+.react-select__control--is-focused {
+    border-color: var(--int-border-focus) !important;
+    box-shadow: none !important;
+}
+
+.react-select__value-container {
+    background: var(--int-surface-primary-default);
+    color: var(--content-secondary);
+}
+
+.react-select__single-value {
+    font-size: 14px !important;
+    color: var(--content-secondary) !important;
+}
+
+.react-select__indicator-separator {
+    background-color: var(--int-border-default) !important;
+}
+
+.react-select__indicator {
+    color: var(--content-muted) !important;
+    cursor: pointer;
+}
+
+.react-select__indicator:hover {
+    color: var(--content-primary) !important;
+}

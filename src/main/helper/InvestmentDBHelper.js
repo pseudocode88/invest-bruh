@@ -31,7 +31,7 @@ class InvestmentDBHelper {
 
     async getInvestments() {
         try {
-            const allInvestments = await this.DB.history.asyncFind({}); // Find all records from 'DB.history'
+            const allInvestments = await this.DB.history.asyncFind({}, [['sort', { date: -1 }]]); // Find all records from 'DB.history'
             const investmentsPerYear = this.groupInvestmentsByYear(allInvestments);
             return investmentsPerYear;
         } catch (error) {

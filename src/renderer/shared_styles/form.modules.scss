@@ -1,0 +1,26 @@
+@import 'typography.scss';
+@import 'layout.scss';
+
+.Form {
+    @include flex(column, 24px);
+
+    &__Control {
+        @include flex(column, 12px);
+    }
+
+    &__Label {
+        @include strong-s;
+        margin: 0;
+        color: var(--content-secondary);
+
+        &Wrap {
+            @include flex(column, 2px);
+        }
+
+        &Helper {
+            @include label-xs;
+            color: var(--content-muted);
+            margin: 0;
+        }
+    }
+}

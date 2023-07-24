@@ -1,0 +1,21 @@
+@import '../../../shared_styles/typography.scss';
+@import '../../../shared_styles/layout.scss';
+
+.Invest {
+    background-color: var(--static-surface-secondary);
+    padding: 24px;
+    border-radius: 12px;
+    @include flex(column, 16px);
+
+    &__Title {
+        @include strong-l;
+        color: var(--content-primary);
+        margin: 0;
+    }
+
+    &__SubTitle {
+        @include label-s;
+        color: var(--content-muted);
+        margin: 0;
+    }
+}

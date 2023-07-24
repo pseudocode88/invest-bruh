@@ -4,8 +4,12 @@
 nav {
     width: 100%;
     border-bottom: 1px solid var(--static-border-primary);
+    background-color: var(--static-surface-secondary);
     @include flex(row, 32px);
     padding: 12px 32px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
 
     & li {
         list-style: none;
@@ -13,10 +17,10 @@ nav {
         margin: 0;
         @include label-s;
         cursor: pointer;
-        color: var(--content-secondary);
+        color: var(--content-muted);
 
         &:hover {
-            color: var(--content-brand);
+            color: var(--content-primary);
         }
     }
 }

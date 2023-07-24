@@ -2,6 +2,8 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import icon from '../../assets/icon.svg';
 import './shared_styles/tokens.css';
+import './shared_styles/react-select-override.css';
+import './shared_styles/react-toastify-override.css';
 import './App.css';
 import routes from './constants/routes';
 import { Home } from './pages/Home';

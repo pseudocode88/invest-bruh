@@ -1,0 +1,27 @@
+@import '../../shared_styles/typography.scss';
+
+.TextInput {
+
+    input[type=text],
+    input[type=number],
+    input[type=date] {
+        border: 1px solid var(--int-border-default);
+        color: var(--content-primary);
+        border-radius: 4px;
+        padding: 10px 12px;
+        @include body-s;
+        line-height: 1;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: var(--int-surface-primary-default);
+
+        &:focus {
+            outline: none;
+            border: 1px solid var(--int-border-focus);
+        }
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(50%);
+    }
+}

@@ -1,0 +1,101 @@
+@import '../../../shared_styles/typography.scss';
+@import '../../../shared_styles/layout.scss';
+
+.Investments {
+    @include flex(column, 64px);
+}
+
+.Investment {
+
+    &__Empty {
+        border: 1px dashed var(--static-border-primary);
+        border-radius: 12px;
+        text-align: center;
+        height: 300px;
+        @include flex(column, 4px);
+        justify-content: center;
+        background-color: var(--static-surface-secondary);
+
+        h1 {
+            @include display-xxs;
+            color: var(--content-muted);
+            margin: 0;
+        }
+
+        p {
+            @include label-xs;
+            color: var(--content-muted);
+            margin: 0;
+            opacity: 0.5;
+        }
+    }
+
+    &__PerYear {
+
+        &Info {
+            @include flex(column, 6px);
+            margin-bottom: 18px;
+
+            &_Year {
+                @include display-s;
+                color: var(--content-secondary);
+                margin: 0;
+            }
+
+            &_TotalAmount {
+                @include label-m;
+                color: var(--content-muted);
+                margin: 0;
+            }
+        }
+    }
+
+    &__Record {
+        border: 1px solid var(--static-border-primary);
+        border-radius: 12px;
+        overflow: hidden;
+        padding: 0;
+
+        li {
+            list-style: none;
+            @include flex('row', 0);
+
+
+            div {
+                padding: 8px 16px;
+                width: 25%;
+                border-right: 1px solid var(--static-border-secondary);
+            }
+
+            .cell_date {
+                width: 15%;
+            }
+
+            .cell_amount {
+                text-align: right;
+            }
+        }
+
+        &_Title {
+            border-bottom: 1px solid var(--static-border-primary);
+            color: var(--content-muted);
+            @include label-s;
+            background-color: var(--static-surface-secondary);
+
+        }
+
+        &_Entry {
+            border-bottom: 1px solid var(--static-border-secondary);
+            color: var(--content-secondary);
+            @include body-s;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            &:hover {
+                background-color: var(--static-surface-secondary);
+            }
+        }
+    }
+}

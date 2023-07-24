@@ -1,0 +1,11 @@
+:root {
+    --toastify-color-dark: var(--static-surface-secondary) !important;
+    --toastify-icon-color-success: var(--content-success) !important;
+    --toastify-color-success: var(--int-support-success-primary-default) !important;
+    --toastify-text-color-dark: var(--content-primary) !important;
+}
+
+.Toastify__toast-body {
+    font-size: 14px;
+    font-weight: 500;
+}
