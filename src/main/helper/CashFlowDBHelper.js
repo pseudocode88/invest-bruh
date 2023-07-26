@@ -5,10 +5,10 @@ const Moment = require('moment');
 const rootDir = require('path').resolve('./');
 
 const dataStoreFilePaths = {
-    history: join(rootDir, 'db', 'investment-history.db')
+    history: join(rootDir, 'db', 'cash-flow.db')
 };
 
-class InvestmentDBHelper {
+class CashFlowDBHelper {
     constructor() {
         this.DB = {};
 
@@ -19,21 +19,21 @@ class InvestmentDBHelper {
         }
     }
 
-    async insertInvestment(entry) {
+    async insertCashFlow(entry) {
         try {
             const result = await this.DB.history.asyncInsert(entry);
             return !!result; // Returns true if the insertion was successful, false otherwise
         } catch (error) {
-            console.error('Error occurred while inserting investment:', error);
+            console.error('Error occurred while inserting cash flow:', error);
             return false;
         }
     }
 
-    async getInvestments() {
+    async getCashFlow() {
         try {
-            const allInvestments = await this.DB.history.asyncFind({}, [['sort', { date: -1 }]]); // Find all records from 'DB.history'
-            const investmentsPerYear = this.groupInvestmentsByYear(allInvestments);
-            return investmentsPerYear;
+            const allCashFlow = await this.DB.history.asyncFind({}, [['sort', { date: -1 }]]); // Find all records from 'DB.history'
+            const cashFlowPerYear = this.groupCashFlowByYear(allCashFlow);
+            return cashFlowPerYear;
         } catch (error) {
             console.error('Error occurred while fetching investments:', error);
             return [];
@@ -41,21 +41,21 @@ class InvestmentDBHelper {
     }
 
     // Helper function to group investments by year
-    groupInvestmentsByYear(investments) {
-        const investmentsPerYear = {};
-        investments.forEach(investment => {
-            const year = Moment(investment.date, 'MMM Do YYYY').year();
-            if (!investmentsPerYear[year]) {
-                investmentsPerYear[year] = [];
+    groupCashFlowByYear(cashflows) {
+        const cashFlowPerYear = {};
+        cashflows.forEach(cashflow => {
+            const year = Moment(cashflow.date, 'MMM Do YYYY').year();
+            if (!cashFlowPerYear[year]) {
+                cashFlowPerYear[year] = [];
             }
-            investmentsPerYear[year].push(investment);
+            cashFlowPerYear[year].push(cashflow);
         });
 
-        return Object.entries(investmentsPerYear).map(([year, investments]) => ({
+        return Object.entries(cashFlowPerYear).map(([year, cashflows]) => ({
             year: parseInt(year),
-            investments
+            cashflows
         }));
     }
 }
 
-module.exports = InvestmentDBHelper;
+module.exports = CashFlowDBHelper;

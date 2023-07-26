@@ -17,7 +17,7 @@ import { resolveHtmlPath } from './util';
 import global from './global';
 import './comms';
 
-import InvestmentDBHelper from './helper/InvestmentDBHelper';
+import CashFlowDBHelper from './helper/CashFlowDBHelper';
 
 class AppUpdater {
   constructor() {
@@ -28,7 +28,7 @@ class AppUpdater {
 }
 
 global.db = {
-  investment: new InvestmentDBHelper()
+  cashflow: new CashFlowDBHelper()
 }
 
 let mainWindow = null;
