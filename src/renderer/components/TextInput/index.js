@@ -8,7 +8,8 @@ export const TextInput = ({
     value,
     onChange,
     errorMessage = '',
-    min = 0
+    min = 0,
+    step = 0.001
 }) => {
     const isError = () => {
         return (errorMessage) ? styles.TextInput__Error : '';
@@ -16,7 +17,7 @@ export const TextInput = ({
 
     return (
         <div className={[styles.TextInput, isError()].join(' ')}>
-            <input type={type} placeholder={placeholder} min={min} value={value} onChange={onChange} />
+            <input type={type} placeholder={placeholder} min={min} value={value} step={step} onChange={onChange} />
             <p className={styles.TextInput__ErrorMessage}>{errorMessage}</p>
         </div>
     )
