@@ -1,0 +1,31 @@
+@import '../../shared_styles/typography.scss';
+
+.TextArea {
+
+    textarea {
+        border: 1px solid var(--int-border-default);
+        color: var(--content-primary);
+        border-radius: 4px;
+        padding: 12px 12px;
+        @include body-s;
+        line-height: 2;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 200px;
+        background-color: var(--int-surface-primary-default);
+
+        &:focus {
+            outline: none;
+            border: 1px solid var(--int-border-focus);
+        }
+    }
+
+    &__Error {
+        border-color: var(--int-border-invalid);
+
+        &Message {
+            @include annote-s;
+            color: var(--content-danger);
+        }
+    }
+}
