@@ -9,6 +9,7 @@ import routes from './constants/routes';
 import { Home } from './pages/Home';
 import { CashFlow } from './pages/CashFlow';
 import { CashFlowAdd } from './pages/CashFlow_Add';
+import { CashFlowBulkAdd } from './pages/CashFlow_BulkAdd';
 
 
 // function Hello() {
@@ -65,6 +66,7 @@ export default function App() {
         <Route path={routes.HOME} element={<Home />} />
         <Route path={routes.CASHFLOW} element={<CashFlow />} />
         <Route path={routes.CASHFLOWADD} element={<CashFlowAdd />} />
+        <Route path={routes.CASHFLOWBULKADD} element={<CashFlowBulkAdd />} />
       </Routes>
     </Router>
   );
