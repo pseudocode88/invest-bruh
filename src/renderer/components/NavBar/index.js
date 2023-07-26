@@ -12,7 +12,7 @@ export const Navbar = ({ selected }) => {
     return (
         <nav>
             <li className={isSelected('home')} onClick={() => { navigate(routes.HOME) }}>Home</li>
-            <li className={isSelected('investment')} onClick={() => { navigate(routes.INVESTMENT) }}>Investment</li>
+            <li className={isSelected('cashflow')} onClick={() => { navigate(routes.CASHFLOW) }}>Cash Flow</li>
         </nav>
     )
 }

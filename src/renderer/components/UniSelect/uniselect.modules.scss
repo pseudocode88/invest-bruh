@@ -1,0 +1,34 @@
+@import "../../shared_styles/typography.scss";
+@import "../../shared_styles/layout.scss";
+
+.UniSelect {
+    @include flex(row, 0);
+    border: 1px solid var(--int-border-default);
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .selected {
+        color: var(--content-primary);
+        background-color: var(--int-surface-brand-secondary-default);
+    }
+
+    li {
+        @include label-s;
+        color: var(--content-secondary);
+        line-height: 1;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding: 16px 12px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--int-surface-brand-secondary-hover);
+        }
+    }
+}

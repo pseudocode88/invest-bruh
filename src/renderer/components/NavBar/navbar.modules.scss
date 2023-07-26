@@ -2,14 +2,17 @@
 @import '../../shared_styles/layout.scss';
 
 nav {
-    width: 100%;
-    border-bottom: 1px solid var(--static-border-primary);
-    background-color: var(--static-surface-secondary);
+    width: 95%;
+    background-color: var(--static-surface-secondary-transparent);
     @include flex(row, 32px);
     padding: 12px 32px;
     box-sizing: border-box;
     position: fixed;
-    top: 0;
+    top: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 100px;
+    backdrop-filter: blur(20px);
 
     & li {
         list-style: none;

@@ -8,18 +8,22 @@
   --static-surface-subtle: #D8DEFF;
   --static-surface-canvas: rgb(60, 60, 60);
 
+  --static-surface-secondary-transparent: #222325cc;
+
   /** Color Tokens: Static Border **/
   --static-border-primary: #2e2929;
   --static-border-secondary: #242020;
 
   /** Color Tokens: Content **/
-  --content-primary: #fff;
+  --content-primary: #eee;
   --content-secondary: #DDDDDD;
   --content-muted: #808080;
-  --content-brand: #EFCB11;
+  --content-brand: #899cff;
+  /* --content-brand: #EFCB11; */
   --content-on-inverse: #151515;
   --content-on-neutral: #DDDDDD;
-  --content-on-brand: #151515;
+  --content-on-brand: #eee;
+  /* --content-on-brand: #151515; */
   --content-danger: #f96b77;
   --content-warning: #d3a72c;
   --content-success: #05c1a8;
@@ -28,15 +32,32 @@
 
   /** Color Tokens: Interactive **/
   --int-surface-primary-default: #222325;
+  --int-surface-primary-hover: #27282b;
+  --int-surface-primary-active: #1c1c1e;
 
-  --int-surface-brand-primary-default: #EFCB11;
+  --int-surface-brand-primary-default: #153AFB;
+  --int-surface-brand-primary-hover: #2f51fb;
+  --int-surface-brand-primary-active: #1234da;
+
+  /* --int-surface-brand-primary-default: #EFCB11;
   --int-surface-brand-primary-hover: #fed714;
-  --int-surface-brand-primary-active: #d6b50f;
+  --int-surface-brand-primary-active: #d6b50f; */
 
-  --int-surface-brand-secondary-default: #bbbbbb;
+
+  --int-surface-brand-secondary-default: #153bfb2d;
+  --int-surface-brand-secondary-hover: #153bfb51;
+  --int-surface-brand-secondary-active: #153bfb37;
+
+  /* --int-surface-brand-secondary-default: #534605;
+  --int-surface-brand-secondary-hover: #756308;
+  --int-surface-brand-secondary-active: #3f3503; */
+
+  /* --int-surface-brand-secondary-default: #bbbbbb;
   --int-surface-brand-secondary-hover: #fff;
-  --int-surface-brand-secondary-active: #aaa;
+  --int-surface-brand-secondary-active: #aaa; */
 
+  --int-surface-neutral-secondary-default: #35373b;
+  --int-surface-neutral-secondary-hover: #414247;
 
   /** Color Tokens: Interactive Border **/
   --int-border-default: #2e2929;

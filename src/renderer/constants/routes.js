@@ -1,5 +1,6 @@
 export default {
     HOME: '/',
-    INVESTMENT: '/investment',
+    CASHFLOW: '/cashflow',
+    CASHFLOWADD: '/cashflow/add',
     CRYPTOPORTFOLIO: '/crypto_portfolio'
 }

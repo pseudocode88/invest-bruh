@@ -4,8 +4,9 @@ import { constants } from 'buffer';
 
 export const PerYear = ({ perYearData }) => {
 
-    const totalAmountInvestedPerYear = (records) => {
-        return records.reduce((totalAmount, record) => totalAmount + parseFloat(record.amount), 0)
+    const calcFlowPerYear = (records, direction) => {
+        return records.filter(({ flow }) => flow === direction)
+            .reduce((totalAmount, record) => totalAmount + parseFloat(record.amount), 0)
     }
 
     const renderPerYear = () => {
@@ -15,16 +16,17 @@ export const PerYear = ({ perYearData }) => {
 
         return perYearData.sort((a, b) => b.year - a.year).map((data, index) => {
             return (
-                <div className={styles.Investment__PerYear} key={index}>
-                    <div className={styles.Investment__PerYearInfo}>
-                        <h2 className={styles.Investment__PerYearInfo_Year}>{data.year}</h2>
-                        <p className={styles.Investment__PerYearInfo_TotalAmount}>
-                            You have {data.investments.length} investments with a total of ${totalAmountInvestedPerYear(data.investments)}
+                <div className={styles.CashFlow__PerYear} key={index}>
+                    <div className={styles.CashFlow__PerYearInfo}>
+                        <h2 className={styles.CashFlow__PerYearInfo_Year}>{data.year}</h2>
+                        <p className={styles.CashFlow__PerYearInfo_TotalAmount}>
+                            In flow ${calcFlowPerYear(data.investments, 'Cash in')}, Out flow ${calcFlowPerYear(data.investments, 'Cash out')}
                         </p>
                     </div>
-                    <ol className={styles.Investment__Record}>
-                        <li className={styles.Investment__Record_Title}>
+                    <ol className={styles.CashFlow__Record}>
+                        <li className={styles.CashFlow__Record_Title}>
                             <div className={styles.cell_date}>Date</div>
+                            <div className={styles.cell_flow}>Flow</div>
                             <div>Sourced from</div>
                             <div className={styles.cell_amount}>Amount</div>
                         </li>
@@ -37,18 +39,21 @@ export const PerYear = ({ perYearData }) => {
 
     const renderEmptyState = () => {
         return (
-            <div className={styles.Investment__Empty}>
-                <h1>No Investments Yet</h1>
-                <p>Please go ahead and add investments</p>
+            <div className={styles.CashFlow__Empty}>
+                <h1>No Cash Flow Yet</h1>
+                <p>Please go ahead and add</p>
             </div>
         )
     }
 
     const renderEntries = (entries) => {
+        const isCashIn = (flow) => { return (flow === 'Cash in') ? styles.cashin : styles.cashout; }
+
         return entries.map((entry, index) => {
             return (
-                <li className={styles.Investment__Record_Entry} key={index}>
+                <li className={styles.CashFlow__Record_Entry} key={index}>
                     <div className={styles.cell_date}>{moment(entry.date).format('DD MMM YYYY')}</div>
+                    <div className={[styles.cell_flow, isCashIn(entry.flow)].join(' ')}>{entry.flow}</div>
                     <div>{entry.source}</div>
                     <div className={styles.cell_amount}>${entry.amount}</div>
                 </li >
@@ -57,7 +62,7 @@ export const PerYear = ({ perYearData }) => {
     }
 
     return (
-        <div className={styles.Investments}>
+        <div className={styles.CashFlows}>
             {renderPerYear()}
         </div>
     )

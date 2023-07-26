@@ -7,7 +7,8 @@ import './shared_styles/react-toastify-override.css';
 import './App.css';
 import routes from './constants/routes';
 import { Home } from './pages/Home';
-import { Investment } from './pages/Investment';
+import { CashFlow } from './pages/CashFlow';
+import { CashFlowAdd } from './pages/CashFlow_Add';
 
 
 // function Hello() {
@@ -62,7 +63,8 @@ export default function App() {
     <Router>
       <Routes>
         <Route path={routes.HOME} element={<Home />} />
-        <Route path={routes.INVESTMENT} element={<Investment />} />
+        <Route path={routes.CASHFLOW} element={<CashFlow />} />
+        <Route path={routes.CASHFLOWADD} element={<CashFlowAdd />} />
       </Routes>
     </Router>
   );

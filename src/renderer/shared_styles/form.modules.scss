@@ -2,14 +2,14 @@
 @import 'layout.scss';
 
 .Form {
-    @include flex(column, 24px);
+    @include flex(column, 32px);
 
     &__Control {
         @include flex(column, 12px);
     }
 
     &__Label {
-        @include strong-s;
+        @include strong-l;
         margin: 0;
         color: var(--content-secondary);
 
@@ -18,9 +18,18 @@
         }
 
         &Helper {
-            @include label-xs;
+            @include annote-s;
             color: var(--content-muted);
             margin: 0;
+        }
+    }
+
+    &__ButtonGroup {
+        @include flex(row, 24px);
+        margin-top: 16px;
+
+        button {
+            min-width: 180px;
         }
     }
 }

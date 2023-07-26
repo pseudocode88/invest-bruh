@@ -1,0 +1,64 @@
+@import '../../shared_styles/layout.scss';
+@import '../../shared_styles/typography.scss';
+
+.CashFlowDetails {
+    width: 100%;
+    @include flex(row, 56px);
+
+    &__Left {
+        width: 70%;
+    }
+
+    &__Right {
+        width: 300px;
+        @include flex(column, 28px);
+    }
+
+    margin-bottom: 80px;
+}
+
+.Briefing {
+    width: 100%;
+    border: 1px solid var(--static-border-secondary);
+    border-left: 0;
+    border-right: 0;
+    padding: 24px 0;
+
+    @include flex(row, 0px);
+
+    div {
+        @include flex(column, 8px);
+        border-right: 1px solid var(--static-border-secondary);
+        // border: 1px solid var(--static-border-secondary);
+        padding: 0 40px;
+        // padding: 32px;
+        // border-radius: 12px;
+        // min-width: 200px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            border-right: 0;
+
+            p:nth-child(2) {
+                color: var(--content-danger);
+            }
+        }
+
+        p {
+            margin: 0;
+
+            &:nth-child(1) {
+                @include strong-s;
+                color: var(--content-muted);
+            }
+
+            &:nth-child(2) {
+                @include display-m;
+                color: var(--content-success);
+            }
+        }
+    }
+}

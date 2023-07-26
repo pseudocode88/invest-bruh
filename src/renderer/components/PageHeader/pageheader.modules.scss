@@ -1,0 +1,30 @@
+@import '../../shared_styles/layout.scss';
+@import '../../shared_styles/typography.scss';
+
+.PageHeader {
+    @include flex(column, 8px);
+
+    h1 {
+        @include display-xl;
+        color: var(--content-primary);
+        margin: 0;
+    }
+
+    p {
+        @include strong-l;
+        color: var(--content-muted);
+        margin: 0;
+    }
+
+    a {
+        @include annote-s;
+        color: var(--content-muted);
+        margin: 0 0 24px 0;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+            color: var(--content-primary);
+        }
+    }
+}

@@ -1,0 +1,7 @@
+@import 'layout.scss';
+
+.Main {
+    width: 1200px;
+    margin: 80px auto;
+    @include flex(column, 56px);
+}
