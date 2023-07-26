@@ -10,11 +10,11 @@ import { useEffect } from 'react';
 
 export const CashFlowAdd = () => {
     useEffect(() => {
-        window.electron.ipcRenderer.on('cashflow/add/success', handleAddInvestmentSuccess);
+        window.electron.ipcRenderer.on('cashflow/add/success', handleAddCashFlowSuccess);
     }, []);
 
-    const handleAddInvestmentSuccess = () => {
-        toast.success("Investment added succesfully!", {
+    const handleAddCashFlowSuccess = () => {
+        toast.success("Cash flow added succesfully!", {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,

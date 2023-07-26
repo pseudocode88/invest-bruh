@@ -27,11 +27,11 @@ export const CashFlow = () => {
 
         perYearData.forEach((year) => {
 
-            totalFlow += year.investments.filter(({ flow }) => flow === ((inflow) ? 'Cash in' : 'Cash out'))
-                .reduce((totalAmount, record) => totalAmount + parseFloat(record.amount), 0)
+            totalFlow += year.cashflows.filter(({ flow }) => flow === ((inflow) ? 'Cash in' : 'Cash out'))
+                .reduce((totalAmount, record) => totalAmount + parseFloat(record.amount), 0);
         });
 
-        return totalFlow;
+        return parseFloat(totalFlow).toFixed(2);
     }
 
     return (
@@ -66,7 +66,7 @@ export const CashFlow = () => {
                             <p>Enter your cash inflow and outflow to crypto</p>
                         </ActionCard>
 
-                        <ActionCard action={"Add now"}>
+                        <ActionCard action={"Add now"} onClick={() => { navigate(routes.CASHFLOWBULKADD) }}>
                             <h4>Add Cashflow in Bulk</h4>
                             <p>Add your cash inflow and outflow in a bulk using csv format</p>
                         </ActionCard>
