@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./uniselect.modules.scss";
 
 export const UniSelect = ({
     options = [],
+    value,
     onChange,
     binaryColor = true
 }) => {
-    const [selected, setSelected] = useState(options[0].value);
+    useEffect(() => {
+        setSelected(value);
+    }, [value]);
+
+    const [selected, setSelected] = useState(value);
 
     const isBinaryColor = (option) => {
         return (binaryColor) ? ((option.color.toUpperCase() === 'RED') ? styles.selected_negative : styles.selected_positive) : styles.selected;
