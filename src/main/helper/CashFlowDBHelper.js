@@ -5,7 +5,7 @@ const Moment = require('moment');
 const rootDir = require('path').resolve('./');
 
 const dataStoreFilePaths = {
-    history: join(rootDir, 'db', 'cash-flow.db')
+    cashFlow: join(rootDir, 'db', 'cash-flow.db')
 };
 
 class CashFlowDBHelper {
@@ -21,7 +21,7 @@ class CashFlowDBHelper {
 
     async insertCashFlow(entry) {
         try {
-            const result = await this.DB.history.asyncInsert(entry);
+            const result = await this.DB.cashFlow.asyncInsert(entry);
             return !!result; // Returns true if the insertion was successful, false otherwise
         } catch (error) {
             console.error('Error occurred while inserting cash flow:', error);
@@ -31,7 +31,7 @@ class CashFlowDBHelper {
 
     async deleteCashFlow(id) {
         try {
-            const result = await this.DB.history.asyncRemove({ _id: id });
+            const result = await this.DB.cashFlow.asyncRemove({ _id: id });
             return !!result; // Returns true if the insertion was successful, false otherwise
         } catch (error) {
             console.error('Error occurred while deleting cash flow:', error);
@@ -41,11 +41,29 @@ class CashFlowDBHelper {
 
     async getCashFlow() {
         try {
-            const allCashFlow = await this.DB.history.asyncFind({}, [['sort', { date: -1 }]]); // Find all records from 'DB.history'
+            const allCashFlow = await this.DB.cashFlow.asyncFind({}, [['sort', { date: -1 }]]);
             const cashFlowPerYear = this.groupCashFlowByYear(allCashFlow);
             return cashFlowPerYear;
         } catch (error) {
             console.error('Error occurred while fetching investments:', error);
+            return [];
+        }
+    }
+
+    async getCashFlowSingleRecord(id) {
+        try {
+            return await this.DB.cashFlow.asyncFindOne({ _id: id });
+        } catch (error) {
+            console.error('Error occurred while fetching investments:', error);
+            return [];
+        }
+    }
+
+    async updateCashFlowRecord(id, record) {
+        try {
+            return await this.DB.cashFlow.asyncUpdate({ _id: id }, { $set: record });
+        } catch (error) {
+            console.error('Error occurred while updating cashflow:', error);
             return [];
         }
     }

@@ -27,8 +27,8 @@ class AppUpdater {
   }
 }
 
-global.db = {
-  cashflow: new CashFlowDBHelper()
+global.dbHelper = {
+  cashFlow: new CashFlowDBHelper()
 }
 
 let mainWindow = null;
