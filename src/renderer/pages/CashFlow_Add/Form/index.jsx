@@ -8,11 +8,33 @@ import { useNavigate } from "react-router-dom";
 import routes from "../../../constants/routes";
 import { UniSelect } from "renderer/components/UniSelect";
 
-export const Form = () => {
-    const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-    const [amount, setAmount] = useState(1);
-    const [source, setSource] = useState('');
-    const [flow, setFlow] = useState('Cash in');
+const formDataDefaults = {
+    date: moment().format('YYYY-MM-DD'),
+    amount: 1,
+    source: '',
+    flow: 'Cash in'
+};
+
+export const Form = ({
+    onSubmit,
+    formData = formDataDefaults,
+    edit = false
+}) => {
+    useEffect(() => {
+        if (formData) {
+            setDate(formData.date);
+            setAmount(formData.amount);
+            setFlow(formData.flow);
+            setSource(formData.source);
+        } else {
+            console.log('formData not found');
+        }
+    }, [formData]);
+
+    const [date, setDate] = useState(formData.date);
+    const [amount, setAmount] = useState(formData.amount);
+    const [source, setSource] = useState(formData.source);
+    const [flow, setFlow] = useState(formData.flow);
 
     const navigate = useNavigate();
 
@@ -23,14 +45,12 @@ export const Form = () => {
 
     const handleInvestSubmit = (e) => {
         e.preventDefault();
-
-        window.electron.ipcRenderer.send('cashflow/add', {
+        onSubmit({
             date: date,
             amount: amount,
             source: source,
             flow: flow
-        });
-
+        })
         resetForm();
     };
 
@@ -59,7 +79,7 @@ export const Form = () => {
                     <label className={formstyles.Form__Label}>Flow</label>
                     <p className={formstyles.Form__LabelHelper}>If you are adding money to crypto then choose Cash In, otherwise if you are widthdrawing choose Cash out</p>
                 </div>
-                <UniSelect options={flowOptions} onChange={handleFlowChange} binaryColor={true}></UniSelect>
+                <UniSelect value={flow} options={flowOptions} onChange={handleFlowChange} binaryColor={true}></UniSelect>
             </div>
 
             <div className={formstyles.Form__Control}>
@@ -85,7 +105,7 @@ export const Form = () => {
             </div>
 
             <div className={formstyles.Form__ButtonGroup}>
-                <Button name={"Add"}></Button>
+                <Button name={(edit) ? "Update" : "Add"}></Button>
                 <Button type={"secondary"} variant={"neutral"} name={"Cancel"} onClick={handleCancel}></Button>
             </div>
         </form>
