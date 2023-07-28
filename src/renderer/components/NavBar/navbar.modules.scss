@@ -9,7 +9,8 @@ nav {
     top: 0;
     left: 0;
     border-bottom: 1px solid var(--static-border-primary);
-    box-shadow: 0 0 54px 29px #0000003b;
+    box-shadow: 0 0px 32px 12px rgba(0, 0, 0, 0.4);
+    background-color: var(--static-surface-primary);
 
     img {
         width: 40px;

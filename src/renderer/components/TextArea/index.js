@@ -11,7 +11,7 @@ export const TextArea = ({
 
     return (
         <div className={[styles.TextArea, isError()].join(' ')}>
-            <textarea onChange={onChange}>{value}</textarea>
+            <textarea onChange={onChange} value={value}></textarea>
             <p className={styles.TextArea__ErrorMessage}>{errorMessage}</p>
         </div>
     );

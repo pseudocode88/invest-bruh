@@ -164,7 +164,7 @@
   "build": {
     "productName": "ElectronReact",
     "appId": "org.erb.ElectronReact",
-    "asar": true,
+    "asar": false,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
       "dist",

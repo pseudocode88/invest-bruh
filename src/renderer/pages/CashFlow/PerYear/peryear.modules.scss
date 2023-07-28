@@ -8,10 +8,8 @@
 .CashFlow {
 
     &__Empty {
-        // border: 1px dashed var(--static-border-primary);
-        // border-radius: 12px;
         text-align: center;
-        height: 300px;
+        height: calc(100vh - 42px);
         @include flex(column, 4px);
         justify-content: center;
         background-color: var(--static-surface-secondary);

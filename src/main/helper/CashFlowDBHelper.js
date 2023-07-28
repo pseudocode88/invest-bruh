@@ -5,7 +5,7 @@ const Moment = require('moment');
 const rootDir = require('path').resolve('./');
 
 const dataStoreFilePaths = {
-    cashFlow: join(rootDir, 'db', 'cash-flow.db')
+    cashFlow: __dirname + '/_datastore-cash-flow.db'
 };
 
 class CashFlowDBHelper {

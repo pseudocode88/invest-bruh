@@ -91,46 +91,4 @@
             }
         }
     }
-
-    div {
-        // @include flex(column, 8px);
-        // border-right: 1px solid var(--static-border-secondary);
-        // border: 1px solid var(--static-border-secondary);
-        // padding: 30px;
-        // padding: 32px;
-        // border-radius: 12px;
-        // min-width: 200px;
-
-        // &:first-child {
-        //     // padding-left: 0;
-        // }
-
-        // &:nth-child(2) {
-        //     p:nth-child(2) {
-        //         color: var(--content-danger);
-        //     }
-        // }
-
-        // &:last-child {
-        //     border-right: 0;
-
-        //     p:nth-child(2) {
-        //         color: var(--content-secondary);
-        //     }
-        // }
-
-        // p {
-        //     margin: 0;
-
-        //     &:nth-child(1) {
-        //         @include strong-s;
-        //         color: var(--content-muted);
-        //     }
-
-        //     &:nth-child(2) {
-        //         @include display-m;
-        //         color: var(--content-success);
-        //     }
-        // }
-    }
 }

@@ -6,8 +6,6 @@ import { PageHeader } from 'renderer/components/PageHeader';
 import routes from '../../constants/routes';
 import { Button } from "renderer/components/Button";
 import styles from "./cashflowbulkadd.modules.scss";
-import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.min.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
@@ -22,25 +20,20 @@ export const CashFlowBulkAdd = () => {
     const navigate = useNavigate();
 
     const handleBulkAddSuccess = () => {
-        toast.success("Cash flow added succesfully!", {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
-
+        new window.Notification("Cash Flow Added", { body: "All cash flow entries has added successdully" })
         window.electron.ipcRenderer.send('cashflow/get/peryear');
+        resetForm();
+    }
+
+    const resetForm = () => {
+        setRawData(' ');
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        window.electron.ipcRenderer.send('cashflow/bulkadd', rawData);
+        window.electron.ipcRenderer.send('cashflow/bulkadd', csvToJson(rawData));
     };
 
     const handleCancel = (e) => {
@@ -50,7 +43,7 @@ export const CashFlowBulkAdd = () => {
     }
 
     const handleRawDataChange = (e) => {
-        setRawData(csvToJson(e.target.value));
+        setRawData(e.target.value);
     }
 
     /**
@@ -110,7 +103,7 @@ export const CashFlowBulkAdd = () => {
                                     <label className={formstyles.Form__Label}>Flow</label>
                                     <p className={formstyles.Form__LabelHelper}>If you are adding money to crypto then choose Cash In, otherwise if you are widthdrawing choose Cash out</p>
                                 </div>
-                                <TextArea onChange={handleRawDataChange}>{rawData}</TextArea>
+                                <TextArea onChange={handleRawDataChange} value={rawData}></TextArea>
                             </div>
 
                             <div className={formstyles.Form__ButtonGroup}>
@@ -122,8 +115,6 @@ export const CashFlowBulkAdd = () => {
                 </div>
                 <div className={wrapper.ThreeColumn__Right}></div>
             </div>
-
-            <ToastContainer />
         </main>
     );
 }
