@@ -4,12 +4,15 @@ import { constants } from 'buffer';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import { useEffect } from 'react';
+import routes from '../../../constants/routes';
+import { useNavigate } from 'react-router-dom';
 
 export const PerYear = ({ perYearData }) => {
-
     useEffect(() => {
         window.electron.ipcRenderer.on('cashflow/delete/success', handleCashFlowDeleteSuccess);
     }, []);
+
+    const navigate = useNavigate();
 
     const calcFlowPerYear = (records, direction) => {
         return parseFloat(records.filter(({ flow }) => flow === direction)
@@ -55,9 +58,11 @@ export const PerYear = ({ perYearData }) => {
     }
 
     const handleDelete = (id) => {
-        if (confirm("Are you sure you want to delete")) {
-            window.electron.ipcRenderer.send('cashflow/delete', id);
-        }
+        window.electron.ipcRenderer.send('cashflow/delete/confirm', id);
+    }
+
+    const handleEdit = (id) => {
+        navigate(routes.CASHFLOWEDIT.replace(':recordId', id));
     }
 
     const handleCashFlowDeleteSuccess = () => {
@@ -76,7 +81,7 @@ export const PerYear = ({ perYearData }) => {
                         <div>{entry.source}</div>
                         <div className={styles.cell_amount}>${entry.amount}</div>
                         <div className={styles.cell_action}>
-                            <EditIcon fontSize={'small'} color={'primary'}></EditIcon>
+                            <EditIcon fontSize={'small'} onClick={() => handleEdit(entry._id)} color={'primary'}></EditIcon>
                             <CloseIcon fontSize={'small'} onClick={() => handleDelete(entry._id)} color={'error'}></CloseIcon>
                         </div>
                     </li >
