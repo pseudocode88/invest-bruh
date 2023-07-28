@@ -4,8 +4,6 @@ import styles from "./cashflowadd.modules.scss";
 import { PageHeader } from "renderer/components/PageHeader";
 import routes from "../../constants/routes";
 import { Form } from "./Form";
-import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.min.css';
 import { useEffect } from 'react';
 
 export const CashFlowAdd = () => {
@@ -14,20 +12,12 @@ export const CashFlowAdd = () => {
     }, []);
 
     const handleAddCashFlowSuccess = () => {
-        // toast.success("Cash flow added succesfully!", {
-        //     position: "top-right",
-        //     autoClose: 2000,
-        //     hideProgressBar: false,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        //     theme: "dark",
-        // });
-
         new window.Notification("Cash Flow Added", { body: "Your cash entry has added successdully" })
-
         window.electron.ipcRenderer.send('cashflow/get/peryear');
+    }
+
+    const handleSubmit = (formData) => {
+        window.electron.ipcRenderer.send('cashflow/add', formData);
     }
 
     return (
@@ -43,13 +33,11 @@ export const CashFlowAdd = () => {
                     </PageHeader>
 
                     <div className={styles.FormWrapper}>
-                        <Form></Form>
+                        <Form onSubmit={handleSubmit}></Form>
                     </div>
                 </div>
                 <div className={wrapper.ThreeColumn__Right}></div>
             </div>
-
-            <ToastContainer />
         </main >
     );
 }
