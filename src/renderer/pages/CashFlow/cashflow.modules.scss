@@ -1,64 +1,136 @@
 @import '../../shared_styles/layout.scss';
 @import '../../shared_styles/typography.scss';
 
+.CashFlowHeader {
+    padding: 40px 24px 40px 24px;
+    border-bottom: 1px solid var(--static-border-primary);
+}
+
 .CashFlowDetails {
     width: 100%;
-    @include flex(row, 56px);
+    @include flex(column, 56px);
 
     &__Left {
-        width: 70%;
+        width: 100%;
     }
 
     &__Right {
-        width: 300px;
-        @include flex(column, 28px);
+        width: 100%;
+        @include flex(row, 28px);
     }
 
     margin-bottom: 80px;
 }
 
 .Briefing {
-    width: 100%;
-    border: 1px solid var(--static-border-secondary);
+    // width: 100%;
+    border-bottom: 1px solid var(--static-border-secondary);
     border-left: 0;
     border-right: 0;
-    padding: 24px 0;
+    // padding: 32px 0 0 0;
 
-    @include flex(row, 0px);
+    @include flex(column, 0px);
 
-    div {
-        @include flex(column, 8px);
-        border-right: 1px solid var(--static-border-secondary);
-        // border: 1px solid var(--static-border-secondary);
-        padding: 0 40px;
-        // padding: 32px;
-        // border-radius: 12px;
-        // min-width: 200px;
-
-        &:first-child {
-            padding-left: 0;
-        }
-
-        &:last-child {
-            border-right: 0;
-
-            p:nth-child(2) {
-                color: var(--content-danger);
-            }
-        }
+    &__Net {
+        padding: 24px 24px 24px 24px;
+        border-bottom: 1px solid var(--static-border-secondary);
 
         p {
             margin: 0;
 
             &:nth-child(1) {
-                @include strong-s;
+                @include label-m;
+                margin-bottom: 4px;
                 color: var(--content-muted);
             }
 
             &:nth-child(2) {
-                @include display-m;
+                @include display-s;
+                color: var(--content-secondary);
+            }
+        }
+    }
+
+    &__CashIn {
+        @include flex(row, 0);
+        justify-content: space-between;
+        padding: 12px 24px;
+        border-bottom: 1px solid var(--static-border-secondary);
+
+        p {
+            margin: 0;
+
+            &:nth-child(1) {
+                @include label-m;
+                color: var(--content-muted);
+            }
+
+            &:nth-child(2) {
+                @include strong-m;
                 color: var(--content-success);
             }
         }
+    }
+
+    &__CashOut {
+        @include flex(row, 0);
+        justify-content: space-between;
+        padding: 12px 24px;
+
+        p {
+            margin: 0;
+
+            &:nth-child(1) {
+                @include label-m;
+                color: var(--content-muted);
+            }
+
+            &:nth-child(2) {
+                @include strong-m;
+                color: var(--content-danger);
+            }
+        }
+    }
+
+    div {
+        // @include flex(column, 8px);
+        // border-right: 1px solid var(--static-border-secondary);
+        // border: 1px solid var(--static-border-secondary);
+        // padding: 30px;
+        // padding: 32px;
+        // border-radius: 12px;
+        // min-width: 200px;
+
+        // &:first-child {
+        //     // padding-left: 0;
+        // }
+
+        // &:nth-child(2) {
+        //     p:nth-child(2) {
+        //         color: var(--content-danger);
+        //     }
+        // }
+
+        // &:last-child {
+        //     border-right: 0;
+
+        //     p:nth-child(2) {
+        //         color: var(--content-secondary);
+        //     }
+        // }
+
+        // p {
+        //     margin: 0;
+
+        //     &:nth-child(1) {
+        //         @include strong-s;
+        //         color: var(--content-muted);
+        //     }
+
+        //     &:nth-child(2) {
+        //         @include display-m;
+        //         color: var(--content-success);
+        //     }
+        // }
     }
 }

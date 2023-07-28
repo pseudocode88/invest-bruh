@@ -3,15 +3,20 @@ import styles from "./uniselect.modules.scss";
 
 export const UniSelect = ({
     options = [],
-    onChange
+    onChange,
+    binaryColor = true
 }) => {
     const [selected, setSelected] = useState(options[0].value);
+
+    const isBinaryColor = (option) => {
+        return (binaryColor) ? ((option.color.toUpperCase() === 'RED') ? styles.selected_negative : styles.selected_positive) : styles.selected;
+    }
 
     const renderOptions = () => {
         let isSelected = '';
 
         return options.map((option, index) => {
-            isSelected = (option.value === selected) ? styles.selected : ''
+            isSelected = (option.value === selected) ? isBinaryColor(option) : ''
             return <li className={isSelected} key={index} data-value={option.value} onClick={handleClick}>{option.name}</li>
         })
     }

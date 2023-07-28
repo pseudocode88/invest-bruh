@@ -14,16 +14,18 @@ export const CashFlowAdd = () => {
     }, []);
 
     const handleAddCashFlowSuccess = () => {
-        toast.success("Cash flow added succesfully!", {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
+        // toast.success("Cash flow added succesfully!", {
+        //     position: "top-right",
+        //     autoClose: 2000,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        //     theme: "dark",
+        // });
+
+        new window.Notification("Cash Flow Added", { body: "Your cash entry has added successdully" })
 
         window.electron.ipcRenderer.send('cashflow/get/peryear');
     }
@@ -32,15 +34,19 @@ export const CashFlowAdd = () => {
         <main>
             <Navbar selected={'cashflow'} />
 
-            <div className={wrapper.Main}>
-                <PageHeader back={routes.CASHFLOW}>
-                    <h1>Add Cash Flow</h1>
-                    <p>Use the form below to create a cash inflow or outflow</p>
-                </PageHeader>
+            <div className={wrapper.ThreeColumn}>
+                <div className={wrapper.ThreeColumn__Left}></div>
+                <div className={[wrapper.ThreeColumn__Center, styles.CashFlowAdd].join(' ')}>
+                    <PageHeader back={routes.CASHFLOW}>
+                        <h1>Add Cash Flow</h1>
+                        <p>Use the form below to create a cash inflow or outflow</p>
+                    </PageHeader>
 
-                <div className={styles.FormWrapper}>
-                    <Form></Form>
+                    <div className={styles.FormWrapper}>
+                        <Form></Form>
+                    </div>
                 </div>
+                <div className={wrapper.ThreeColumn__Right}></div>
             </div>
 
             <ToastContainer />

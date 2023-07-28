@@ -1,6 +1,7 @@
 import styles from './button.modules.scss';
 
 export const Button = ({
+    children,
     name,
     type,
     variant = "brand",
@@ -33,6 +34,6 @@ export const Button = ({
     }
 
     return (
-        <button className={[selectType(), selectSize()].join(' ')} onClick={onClick}>{name}</button>
+        <button className={[selectType(), selectSize()].join(' ')} onClick={onClick}>{name || children}</button>
     );
 }

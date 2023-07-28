@@ -5,13 +5,13 @@
     @include flex(column, 8px);
 
     h1 {
-        @include display-xl;
+        @include display-m;
         color: var(--content-primary);
         margin: 0;
     }
 
     p {
-        @include strong-l;
+        @include label-s;
         color: var(--content-muted);
         margin: 0;
     }

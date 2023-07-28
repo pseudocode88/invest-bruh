@@ -1,8 +1,15 @@
 import moment from 'moment';
 import styles from './peryear.modules.scss';
 import { constants } from 'buffer';
+import CloseIcon from '@mui/icons-material/Close';
+import EditIcon from '@mui/icons-material/Edit';
+import { useEffect } from 'react';
 
 export const PerYear = ({ perYearData }) => {
+
+    useEffect(() => {
+        window.electron.ipcRenderer.on('cashflow/delete/success', handleCashFlowDeleteSuccess);
+    }, []);
 
     const calcFlowPerYear = (records, direction) => {
         return parseFloat(records.filter(({ flow }) => flow === direction)
@@ -29,6 +36,7 @@ export const PerYear = ({ perYearData }) => {
                             <div className={styles.cell_flow}>Flow</div>
                             <div>Sourced from</div>
                             <div className={styles.cell_amount}>Amount</div>
+                            <div className={styles.cell_action}>Actions</div>
                         </li>
                         {renderEntries(data.cashflows)}
                     </ol>
@@ -46,9 +54,19 @@ export const PerYear = ({ perYearData }) => {
         )
     }
 
+    const handleDelete = (id) => {
+        if (confirm("Are you sure you want to delete")) {
+            window.electron.ipcRenderer.send('cashflow/delete', id);
+        }
+    }
+
+    const handleCashFlowDeleteSuccess = () => {
+        new window.Notification("Cash Flow Deleted", { body: "Your cash entry has deleted successdully" })
+        window.electron.ipcRenderer.send('cashflow/get/peryear');
+    }
+
     const renderEntries = (entries) => {
         const isCashIn = (flow) => { return (flow === 'Cash in') ? styles.cashin : styles.cashout; }
-        console.log(entries.sort((a, b) => a.date - b.date))
         return entries.sort((a, b) => b.date - a.date)
             .map((entry, index) => {
                 return (
@@ -57,6 +75,10 @@ export const PerYear = ({ perYearData }) => {
                         <div className={[styles.cell_flow, isCashIn(entry.flow)].join(' ')}>{entry.flow}</div>
                         <div>{entry.source}</div>
                         <div className={styles.cell_amount}>${entry.amount}</div>
+                        <div className={styles.cell_action}>
+                            <EditIcon fontSize={'small'} color={'primary'}></EditIcon>
+                            <CloseIcon fontSize={'small'} onClick={() => handleDelete(entry._id)} color={'error'}></CloseIcon>
+                        </div>
                     </li >
                 );
             })

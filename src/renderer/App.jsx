@@ -4,6 +4,7 @@ import icon from '../../assets/icon.svg';
 import './shared_styles/tokens.css';
 import './shared_styles/react-select-override.css';
 import './shared_styles/react-toastify-override.css';
+import './shared_styles/mui-overriders.css';
 import './App.css';
 import routes from './constants/routes';
 import { Home } from './pages/Home';

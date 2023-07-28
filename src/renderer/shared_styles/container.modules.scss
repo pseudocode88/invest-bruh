@@ -2,6 +2,35 @@
 
 .Main {
     width: 1200px;
-    margin: 80px auto;
-    @include flex(column, 56px);
+    @include flex(column, 40px);
+}
+
+.ThreeColumn {
+    width: 100%;
+    padding: 46px 0 0 0;
+    height: 100vh;
+    box-sizing: border-box;
+    @include flex(row, 0);
+
+    &__Left {
+        width: 320px;
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+
+    &__Center {
+        width: 100%;
+        flex-grow: 1;
+        box-sizing: border-box;
+        border: 1px solid var(--static-border-primary);
+        border-top: 0;
+        border-bottom: 0;
+        overflow-y: scroll;
+    }
+
+    &__Right {
+        width: 300px;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
 }

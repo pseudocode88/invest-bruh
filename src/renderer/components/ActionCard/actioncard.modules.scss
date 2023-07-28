@@ -3,9 +3,9 @@
 
 .ActionCard {
     // background-color: var(--static-surface-secondary);
-    border: 1px solid var(--static-border-primary);
+    border-bottom: 1px solid var(--static-border-primary);
     padding: 24px;
-    border-radius: 12px;
+    // border-radius: 12px;
     @include flex(column, 16px);
 
     h1,

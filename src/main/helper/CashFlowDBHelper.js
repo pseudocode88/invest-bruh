@@ -29,6 +29,16 @@ class CashFlowDBHelper {
         }
     }
 
+    async deleteCashFlow(id) {
+        try {
+            const result = await this.DB.history.asyncRemove({ _id: id });
+            return !!result; // Returns true if the insertion was successful, false otherwise
+        } catch (error) {
+            console.error('Error occurred while deleting cash flow:', error);
+            return false;
+        }
+    }
+
     async getCashFlow() {
         try {
             const allCashFlow = await this.DB.history.asyncFind({}, [['sort', { date: -1 }]]); // Find all records from 'DB.history'

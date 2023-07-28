@@ -48,8 +48,8 @@ export const Form = () => {
     }
 
     const flowOptions = [
-        { name: 'Cash in', value: 'Cash in' },
-        { name: 'Cash out', value: 'Cash out' }
+        { name: 'Cash in', value: 'Cash in', color: 'green' },
+        { name: 'Cash out', value: 'Cash out', color: 'red' }
     ];
 
     return (
@@ -59,7 +59,7 @@ export const Form = () => {
                     <label className={formstyles.Form__Label}>Flow</label>
                     <p className={formstyles.Form__LabelHelper}>If you are adding money to crypto then choose Cash In, otherwise if you are widthdrawing choose Cash out</p>
                 </div>
-                <UniSelect options={flowOptions} onChange={handleFlowChange}></UniSelect>
+                <UniSelect options={flowOptions} onChange={handleFlowChange} binaryColor={true}></UniSelect>
             </div>
 
             <div className={formstyles.Form__Control}>

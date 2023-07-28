@@ -4,7 +4,7 @@
 .UniSelect {
     @include flex(row, 0);
     border: 1px solid var(--int-border-default);
-    border-radius: 4px;
+    border-radius: 0;
     box-sizing: border-box;
     width: 100%;
     margin: 0;
@@ -15,9 +15,26 @@
         background-color: var(--int-surface-brand-secondary-default);
     }
 
+    .selected_positive {
+        color: var(--content-on-inverse);
+        background-color: var(--content-success);
+
+        &:hover {
+            background-color: var(--content-success);
+        }
+    }
+
+    .selected_negative {
+        background-color: var(--content-danger);
+
+        &:hover {
+            background-color: var(--content-danger);
+        }
+    }
+
     li {
-        @include label-s;
-        color: var(--content-secondary);
+        @include strong-s;
+        color: var(--content-primary);
         line-height: 1;
         list-style: none;
         padding: 0;
@@ -28,7 +45,7 @@
         cursor: pointer;
 
         &:hover {
-            background-color: var(--int-surface-brand-secondary-hover);
+            background-color: var(--static-surface-tertiary);
         }
     }
 }

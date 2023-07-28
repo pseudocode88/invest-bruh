@@ -1,0 +1,20 @@
+.MuiSvgIcon-colorPrimary,
+.MuiSvgIcon-colorError {
+    color: var(--content-muted) !important;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.MuiSvgIcon-colorPrimary:hover {
+    color: var(--content-secondary) !important;
+    opacity: 1;
+}
+
+.MuiSvgIcon-colorError:hover {
+    color: var(--content-danger) !important;
+    opacity: 1;
+}
+
+.MuiSvgIcon-fontSizeSmall {
+    width: 16px;
+}

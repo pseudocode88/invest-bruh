@@ -14,3 +14,8 @@ ipcMain.on('cashflow/get/peryear', async (event, arg) => {
     await global.db.cashflow.getCashFlow()
         .then((result) => { event.reply('cashflow/get/peryear', result); })
 });
+
+ipcMain.on('cashflow/delete', async (event, arg) => {
+    await global.db.cashflow.deleteCashFlow(arg)
+        .then((result) => { event.reply('cashflow/delete/success', result); })
+});

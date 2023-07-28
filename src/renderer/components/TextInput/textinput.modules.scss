@@ -7,7 +7,7 @@
     input[type=date] {
         border: 1px solid var(--int-border-default);
         color: var(--content-primary);
-        border-radius: 4px;
+        border-radius: 0;
         padding: 12px 12px;
         @include body-s;
         line-height: 1;

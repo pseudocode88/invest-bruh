@@ -2,25 +2,26 @@
 @import '../../shared_styles/layout.scss';
 
 nav {
-    width: 95%;
-    background-color: var(--static-surface-secondary-transparent);
-    @include flex(row, 32px);
-    padding: 12px 32px;
+    width: 100%;
+    @include flex(row, 0);
     box-sizing: border-box;
     position: fixed;
-    top: 32px;
-    left: 50%;
-    transform: translate(-50%);
-    border-radius: 100px;
-    backdrop-filter: blur(20px);
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid var(--static-border-primary);
+    box-shadow: 0 0 54px 29px #0000003b;
+
+    img {
+        width: 40px;
+    }
 
     & li {
+        padding: 10px 24px;
         list-style: none;
-        padding: 0;
         margin: 0;
         @include label-s;
         cursor: pointer;
-        color: var(--content-muted);
+        color: var(--content-secondary);
 
         &:hover {
             color: var(--content-primary);

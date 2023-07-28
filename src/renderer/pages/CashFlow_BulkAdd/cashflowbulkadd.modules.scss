@@ -1,3 +1,11 @@
+@import '../../shared_styles/layout.scss';
+
+.CashFlowAddBulk {
+    padding: 40px;
+    @include flex(column, 40px);
+}
+
+
 .FormWrapper {
-    width: 850px;
+    width: 100%;
 }

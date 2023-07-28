@@ -96,27 +96,31 @@ export const CashFlowBulkAdd = () => {
     return (
         <main>
             <Navbar selected={'cashflow'}></Navbar>
-            <div className={wrapper.Main}>
-                <PageHeader back={routes.CASHFLOW}>
-                    <h1>Add Cash Flow in Bulk</h1>
-                    <p>Use the form below to create a cash inflow or outflow</p>
-                </PageHeader>
-                <div className={styles.FormWrapper}>
-                    <form className={formstyles.Form} onSubmit={handleSubmit}>
-                        <div className={formstyles.Form__Control}>
-                            <div className={formstyles.Form__LabelWrap}>
-                                <label className={formstyles.Form__Label}>Flow</label>
-                                <p className={formstyles.Form__LabelHelper}>If you are adding money to crypto then choose Cash In, otherwise if you are widthdrawing choose Cash out</p>
+            <div className={wrapper.ThreeColumn}>
+                <div className={wrapper.ThreeColumn__Left}></div>
+                <div className={[wrapper.ThreeColumn__Center, styles.CashFlowAddBulk].join(' ')}>
+                    <PageHeader back={routes.CASHFLOW}>
+                        <h1>Add Cash Flow in Bulk</h1>
+                        <p>Use the form below to create a cash inflow or outflow</p>
+                    </PageHeader>
+                    <div className={styles.FormWrapper}>
+                        <form className={formstyles.Form} onSubmit={handleSubmit}>
+                            <div className={formstyles.Form__Control}>
+                                <div className={formstyles.Form__LabelWrap}>
+                                    <label className={formstyles.Form__Label}>Flow</label>
+                                    <p className={formstyles.Form__LabelHelper}>If you are adding money to crypto then choose Cash In, otherwise if you are widthdrawing choose Cash out</p>
+                                </div>
+                                <TextArea onChange={handleRawDataChange}>{rawData}</TextArea>
                             </div>
-                            <TextArea onChange={handleRawDataChange}>{rawData}</TextArea>
-                        </div>
 
-                        <div className={formstyles.Form__ButtonGroup}>
-                            <Button name={"Add"}></Button>
-                            <Button type={"secondary"} variant={"neutral"} name={"Cancel"} onClick={handleCancel}></Button>
-                        </div>
-                    </form>
+                            <div className={formstyles.Form__ButtonGroup}>
+                                <Button name={"Add"}></Button>
+                                <Button type={"secondary"} variant={"neutral"} name={"Cancel"} onClick={handleCancel}></Button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <div className={wrapper.ThreeColumn__Right}></div>
             </div>
 
             <ToastContainer />

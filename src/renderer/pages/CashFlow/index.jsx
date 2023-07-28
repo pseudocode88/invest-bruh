@@ -7,6 +7,7 @@ import { PerYear } from "./PerYear";
 import { ActionCard } from "renderer/components/ActionCard";
 import routes from '../../constants/routes';
 import { PageHeader } from 'renderer/components/PageHeader';
+import { Button } from '../../components/Button';
 
 export const CashFlow = () => {
     useEffect(() => {
@@ -37,8 +38,46 @@ export const CashFlow = () => {
     return (
         <main>
             <Navbar selected={'cashflow'} />
+            <div className={wrapper.ThreeColumn}>
+                <div className={wrapper.ThreeColumn__Left}>
+                    <div className={styles.CashFlowHeader}>
+                        <PageHeader>
+                            <h1>Cash Flow</h1>
+                            <p>Track of cash that you moved in and out of crypto</p>
+                        </PageHeader>
+                    </div>
+                    <div className={styles.Briefing}>
+                        <div className={styles.Briefing__Net}>
+                            <p>Net Cash Flow</p>
+                            <p>${parseFloat(calculateTotalflow(true) - calculateTotalflow(false)).toFixed(2)}</p>
+                        </div>
+                        <div className={styles.Briefing__CashIn}>
+                            <p>In Flow</p>
+                            <p>${calculateTotalflow(true)}</p>
+                        </div>
+                        <div className={styles.Briefing__CashOut}>
+                            <p>Out Flow</p>
+                            <p>${calculateTotalflow(false)}</p>
+                        </div>
 
-            <div className={wrapper.Main}>
+                    </div>
+                </div>
+                <div className={wrapper.ThreeColumn__Center}>
+                    <PerYear perYearData={perYearData}></PerYear>
+                </div>
+                <div className={wrapper.ThreeColumn__Right}>
+                    <ActionCard action={"Add now"} onClick={() => { navigate(routes.CASHFLOWADD) }}>
+                        <h4>Add Cashflow</h4>
+                        <p>Enter your cash inflow and outflow to crypto</p>
+                    </ActionCard>
+                    <ActionCard action={"Add now"} onClick={() => { navigate(routes.CASHFLOWBULKADD) }}>
+                        <h4>Add Cashflow in Bulk</h4>
+                        <p>Add your cash inflow and outflow in a bulk using csv format</p>
+                    </ActionCard>
+                </div>
+            </div>
+
+            {/* <div className={wrapper.Main}>
                 <PageHeader>
                     <h1>Cash Flow</h1>
                     <p>Track of cash that you moved in and out of crypto</p>
@@ -54,25 +93,32 @@ export const CashFlow = () => {
                         <p>Total Cash Out</p>
                         <p>${calculateTotalflow(false)}</p>
                     </div>
+
+                    <div>
+                        <p>Net Flow</p>
+                        <p>${parseFloat(calculateTotalflow(true) - calculateTotalflow(false)).toFixed(2)}</p>
+                    </div>
                 </div>
 
                 <div className={styles.CashFlowDetails}>
+                    <div className={styles.CashFlowDetails__Right}>
+                        <Button size={'small'} onClick={() => { navigate(routes.CASHFLOWADD) }}>Add cash flow</Button>
+                        <Button size={'small'} type={'secondary'} onClick={() => { navigate(routes.CASHFLOWBULKADD) }}>Add cash flow in bulk</Button>
+                        {/* <ActionCard action={"Add now"} onClick={() => { navigate(routes.CASHFLOWADD) }}>
+                            <h4>Add Cashflow</h4>
+                            <p>Enter your cash inflow and outflow to crypto</p>
+                        </ActionCard> */}
+
+            {/* <ActionCard action={"Add now"} onClick={() => { navigate(routes.CASHFLOWBULKADD) }}>
+                            <h4>Add Cashflow in Bulk</h4>
+                            <p>Add your cash inflow and outflow in a bulk using csv format</p>
+                        </ActionCard> */}
+            {/* </div>
                     <div className={styles.CashFlowDetails__Left}>
                         <PerYear perYearData={perYearData}></PerYear>
                     </div>
-                    <div className={styles.CashFlowDetails__Right}>
-                        <ActionCard action={"Add now"} onClick={() => { navigate(routes.CASHFLOWADD) }}>
-                            <h4>Add Cashflow</h4>
-                            <p>Enter your cash inflow and outflow to crypto</p>
-                        </ActionCard>
-
-                        <ActionCard action={"Add now"} onClick={() => { navigate(routes.CASHFLOWBULKADD) }}>
-                            <h4>Add Cashflow in Bulk</h4>
-                            <p>Add your cash inflow and outflow in a bulk using csv format</p>
-                        </ActionCard>
-                    </div>
-                </div>
-            </div>
+                </div >
+            </div > */}
         </main >
     )
 }
