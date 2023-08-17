@@ -1,0 +1,76 @@
+@import '../../shared_styles/typography.scss';
+@import '../../shared_styles/layout.scss';
+
+/* Customize the label (the container) */
+.Checkbox {
+    display: flex;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    @include strong-s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.Checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    color: var(--content-on-brand);
+    background-color: var(--content-on-brand);
+
+    &:focus~.Checkbox__Checkmark {
+        border: 1px solid var(--int-border-focus);
+    }
+}
+
+/* Create a custom checkbox */
+.Checkbox__Checkmark {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: var(--int-surface-primary-default);
+    border: 1px solid var(--int-border-default);
+}
+
+/* On mouse-over, add a grey background color */
+.Checkbox:hover input~.Checkbox__Checkmark {
+    background-color: var(--int-surface-primary-hover);
+}
+
+/* When the checkbox is checked, add a blue background */
+.Checkbox input:checked~.Checkbox__Checkmark {
+    background-color: var(--int-surface-brand-primary-default);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.Checkbox__Checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.Checkbox input:checked~.Checkbox__Checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.Checkbox .Checkbox__Checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 2px;
+    height: 6px;
+    border: solid var(--content-on-brand);
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

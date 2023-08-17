@@ -5,7 +5,8 @@ export const UniSelect = ({
     options = [],
     value,
     onChange,
-    binaryColor = true
+    binaryColor = true,
+    size = "medium"
 }) => {
     useEffect(() => {
         setSelected(value);
@@ -14,7 +15,10 @@ export const UniSelect = ({
     const [selected, setSelected] = useState(value);
 
     const isBinaryColor = (option) => {
-        return (binaryColor) ? ((option.color.toUpperCase() === 'RED') ? styles.selected_negative : styles.selected_positive) : styles.selected;
+        return (binaryColor) ? (
+            (option.color.toUpperCase() === 'RED') ? styles.selected_negative : (
+                (option.color.toUpperCase() === 'BLUE') ? styles.selected_neutral : styles.selected_positive)
+        ) : styles.selected;
     }
 
     const renderOptions = () => {
@@ -32,7 +36,11 @@ export const UniSelect = ({
         onChange(value);
     }
 
+    const getSize = () => {
+        return (size === "small") ? styles.UniSelect__Small : null;
+    }
+
     return (
-        <ol className={styles.UniSelect}>{renderOptions()}</ol>
+        <ol className={[styles.UniSelect, getSize()].join(' ')}>{renderOptions()}</ol>
     );
 }

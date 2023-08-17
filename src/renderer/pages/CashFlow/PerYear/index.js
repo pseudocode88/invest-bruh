@@ -79,7 +79,7 @@ export const PerYear = ({ perYearData }) => {
                         <div className={styles.cell_date}>{moment(entry.date).format('DD MMM YYYY')}</div>
                         <div className={[styles.cell_flow, isCashIn(entry.flow)].join(' ')}>{entry.flow}</div>
                         <div>{entry.source}</div>
-                        <div className={styles.cell_amount}>${entry.amount}</div>
+                        <div className={styles.cell_amount}><span className={styles.cell_dollar}>$</span>{entry.amount}</div>
                         <div className={styles.cell_action}>
                             <EditIcon fontSize={'small'} onClick={() => handleEdit(entry._id)} color={'primary'}></EditIcon>
                             <CloseIcon fontSize={'small'} onClick={() => handleDelete(entry._id)} color={'error'}></CloseIcon>

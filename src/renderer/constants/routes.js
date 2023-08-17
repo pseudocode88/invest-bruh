@@ -4,5 +4,8 @@ export default {
     CASHFLOWADD: '/cashflow/add',
     CASHFLOWBULKADD: '/cashflow/bulkadd',
     CASHFLOWEDIT: '/cashflow/edit/:recordId',
-    CRYPTOPORTFOLIO: '/crypto_portfolio'
+    HOLDINGS: '/holdings',
+    HOLDINGSADD: '/holdings/add',
+    TRADING: '/trading',
+    SETTINGS: '/settings'
 }

@@ -1,0 +1,55 @@
+@import '../../../shared_styles/typography.scss';
+@import '../../../shared_styles/layout.scss';
+
+.ManageGroupForm {
+    @include flex(column, 0px);
+
+    &__Section {
+        border-bottom: 1px solid var(--static-border-primary);
+        @include flex(column, 24px);
+
+        &_Padded {
+            padding: 24px;
+        }
+
+        &Title {
+            @include flex(column, 8px);
+
+            h3 {
+                @include strong-l;
+                color: var(--content-primary);
+                margin: 0;
+            }
+        }
+    }
+
+    &__GroupList {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+
+        &Item {
+            border-bottom: 1px solid var(--static-border-primary);
+            @include flex(row, 8px);
+            padding: 16px 24px;
+
+            p {
+                margin: 0;
+                flex-grow: 1;
+                @include annote-s;
+            }
+
+            svg {
+                width: 20px;
+                height: 20px;
+                flex-grow: 0;
+                flex-shrink: 0;
+                cursor: pointer;
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+}

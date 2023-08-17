@@ -21,23 +21,23 @@ export const CashFlowAdd = () => {
     }
 
     return (
-        <main>
-            <Navbar selected={'cashflow'} />
+        // <main>
+        //     <Navbar selected={'cashflow'} />
 
-            <div className={wrapper.ThreeColumn}>
-                <div className={wrapper.ThreeColumn__Left}></div>
-                <div className={[wrapper.ThreeColumn__Center, styles.CashFlowAdd].join(' ')}>
-                    <PageHeader back={routes.CASHFLOW}>
-                        <h1>Add Cash Flow</h1>
-                        <p>Use the form below to create a cash inflow or outflow</p>
-                    </PageHeader>
+        //     <div className={wrapper.ThreeColumn}>
+        //         <div className={wrapper.ThreeColumn__Left}></div>
+        //         <div className={[wrapper.ThreeColumn__Center, styles.CashFlowAdd].join(' ')}>
+        //             <PageHeader back={routes.CASHFLOW}>
+        //                 <h1>Add Cash Flow</h1>
+        //                 <p>Use the form below to create a cash inflow or outflow</p>
+        //             </PageHeader>
 
-                    <div className={styles.FormWrapper}>
-                        <Form onSubmit={handleSubmit}></Form>
-                    </div>
-                </div>
-                <div className={wrapper.ThreeColumn__Right}></div>
-            </div>
-        </main >
+        <div className={styles.FormWrapper}>
+            <Form onSubmit={handleSubmit}></Form>
+        </div>
+        //     </div>
+        //     <div className={wrapper.ThreeColumn__Right}></div>
+        // </div>
+        // </main >
     );
 }

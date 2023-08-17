@@ -14,9 +14,10 @@ export const Navbar = ({ selected }) => {
         <nav>
             <img src={Logo} />
             <li className={isSelected('home')} onClick={() => { navigate(routes.HOME) }}>Home</li>
-            <li className={isSelected('home')} onClick={() => { navigate(routes.HOME) }}>Portfolio</li>
-            <li className={isSelected('home')} onClick={() => { navigate(routes.HOME) }}>Trading</li>
+            <li className={isSelected('holdings')} onClick={() => { navigate(routes.HOLDINGS) }}>Holdings</li>
+            <li className={isSelected('trading')} onClick={() => { navigate(routes.TRADING) }}>Trading</li>
             <li className={isSelected('cashflow')} onClick={() => { navigate(routes.CASHFLOW) }}>Cash Flow</li>
+            <li className={[isSelected('settings'), styles.Navbar__Splitter].join(' ')} onClick={() => { navigate(routes.SETTINGS) }}>Settings</li>
         </nav>
     )
 }

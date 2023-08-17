@@ -1,0 +1,5 @@
+@import '../../../shared_styles/layout.scss';
+
+.AddForm {
+    @include flex(column, 32px);
+}

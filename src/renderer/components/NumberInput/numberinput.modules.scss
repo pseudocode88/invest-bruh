@@ -1,0 +1,46 @@
+@import '../../shared_styles/typography.scss';
+
+.NumberInput {
+
+    input[type=text] {
+        border: 1px solid var(--int-border-default);
+        color: var(--content-primary);
+        border-radius: 0;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: var(--int-surface-primary-default);
+        padding: 12px 12px;
+        @include body-s;
+        line-height: 1;
+
+        &:focus {
+            outline: none;
+            border: 1px solid var(--int-border-focus);
+        }
+    }
+
+    &__NoError {
+        .TextInput__ErrorMessage {
+            display: none;
+        }
+    }
+
+    &__Error {
+        border-color: var(--int-border-invalid);
+
+        &Message {
+            display: block;
+            @include annote-s;
+            color: var(--content-danger);
+        }
+    }
+
+    &__Small {
+
+        input[type=text] {
+            padding: 10px 10px;
+            @include strong-xs;
+            line-height: 1;
+        }
+    }
+}

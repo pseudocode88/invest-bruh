@@ -46,7 +46,7 @@
 
             &:nth-child(2) {
                 @include display-s;
-                color: var(--content-secondary);
+                color: var(--content-primary);
             }
         }
     }

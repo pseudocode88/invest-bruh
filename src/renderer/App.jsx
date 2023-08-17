@@ -12,6 +12,9 @@ import { CashFlow } from './pages/CashFlow';
 import { CashFlowAdd } from './pages/CashFlow_Add';
 import { CashFlowBulkAdd } from './pages/CashFlow_BulkAdd';
 import { CashFlowEdit } from './pages/CashFlow_Edit';
+import { Holdings } from './pages/Holdings';
+import { Trading } from './pages/Trading';
+import { Settings } from './pages/Settings';
 
 
 // function Hello() {
@@ -70,6 +73,9 @@ export default function App() {
         <Route path={routes.CASHFLOWADD} element={<CashFlowAdd />} />
         <Route path={routes.CASHFLOWEDIT} element={<CashFlowEdit />} />
         <Route path={routes.CASHFLOWBULKADD} element={<CashFlowBulkAdd />} />
+        <Route path={routes.HOLDINGS} element={<Holdings />} />
+        <Route path={routes.TRADING} element={<Trading />} />
+        <Route path={routes.SETTINGS} element={<Settings />} />
       </Routes>
     </Router>
   );

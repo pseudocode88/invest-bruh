@@ -25,6 +25,11 @@ button {
         @include label-s;
     }
 
+    &_xsmall {
+        padding: 8px 16px;
+        @include label-xs;
+    }
+
     &_primary_brand {
         background-color: var(--int-surface-brand-primary-default);
         color: var(--content-on-brand);

@@ -1,0 +1,246 @@
+@import '../../../shared_styles/typography.scss';
+@import '../../../shared_styles/layout.scss';
+
+.AssetDetails {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    padding: 40px 0 120px 0;
+    @include flex(column, 56px);
+
+    &__Empty {
+        text-align: center;
+        height: calc(100vh - 42px);
+        @include flex(column, 4px);
+        justify-content: center;
+        background-color: var(--static-surface-secondary);
+
+        h2 {
+            @include strong-l;
+            color: var(--content-muted);
+            margin: 0;
+        }
+
+        p {
+            @include label-xs;
+            color: var(--content-muted);
+            margin: 0;
+            opacity: 0.5;
+        }
+    }
+
+    &__Header {
+        margin: 0 0 24px 0;
+        padding: 0 24px;
+        @include display-s;
+        color: var(--content-primary);
+
+        span {
+            color: var(--content-muted);
+        }
+    }
+
+    &__Info {
+        @include flex(row, 0px);
+        border-top: 1px solid var(--static-border-primary);
+
+        p {
+            margin: 0;
+            padding: 10px 24px;
+            border-right: 1px solid var(--static-border-primary);
+            @include strong-xs;
+            text-transform: uppercase;
+            color: var(--content-secondary);
+        }
+    }
+
+    &__Overview {
+        // border: 2px dashed var(--static-border-primary);
+        border-right: 0;
+        border-left: 0;
+        @include flex(row, 0);
+
+        &Snapshot {
+            padding: 24px;
+            border: 1px solid var(--static-border-primary);
+            border-left: 0;
+            flex-shrink: 0;
+
+            &Empty {
+                border: 1px solid var(--static-border-primary);
+                // opacity: 0.5;
+                width: 100%;
+                border-right: 0;
+                border-left: 0;
+                // background: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--static-surface-secondary) 10px, var(--static-surface-secondary) 20px);
+            }
+
+            &_Label {
+                color: var(--content-muted);
+                @include strong-xs;
+                margin: 0;
+            }
+
+            &_Value {
+                color: var(--content-secondary);
+                @include strong-xxl;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.AssetPlan {
+
+    &__Heading {
+        @include label-m;
+        color: var(--content-primary);
+        margin: 0;
+        padding: 0 24px;
+    }
+}
+
+.AssetTransactions {
+
+    &__HeadingWrapper {
+        @include flex(row, 0);
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 16px;
+        border-top: 1px solid var(--static-border-primary);
+    }
+
+    &__Heading {
+        @include label-l;
+        color: var(--content-primary);
+        margin: 0;
+    }
+
+    &__History {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        &_Empty {
+
+            // width: 100%;
+            padding: 24px 0;
+
+            text-align: center;
+            @include flex(column, 4px);
+            justify-content: center;
+            // padding: 0 24px;
+            background-color: var(--static-surface-secondary);
+            border-bottom: 1px solid var(--static-border-primary);
+
+            p {
+                @include strong-s;
+                color: var(--content-muted);
+                margin: 0;
+            }
+        }
+
+        li {
+            list-style: none;
+            @include flex(row, 0);
+
+            &:hover {
+                background-color: var(--static-surface-secondary);
+            }
+
+            div {
+                padding: 10px 16px;
+                box-sizing: border-box;
+                border-right: 1px dotted var(--static-border-secondary);
+
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+
+            .cell_date {
+                width: 16%;
+                flex-shrink: 0;
+            }
+
+            .cell_type {
+                width: 15%;
+                flex-shrink: 0;
+            }
+
+            .cell_unit {
+                width: 16%;
+                flex-shrink: 0;
+                text-align: right;
+                flex-grow: 1;
+            }
+
+            .cell_marketprice {
+                width: 16%;
+                flex-shrink: 0;
+                text-align: right;
+                flex-grow: 1;
+            }
+
+            .cell_value {
+                width: 16%;
+                flex-shrink: 0;
+                text-align: right;
+                flex-grow: 1;
+            }
+
+            .cell_action {
+                width: 16%;
+                flex-shrink: 0;
+            }
+
+            .highlight_currency {
+                float: left;
+                color: var(--content-muted);
+            }
+
+            .highlight_buy {
+                color: var(--content-success);
+                @include annote-s;
+                text-transform: capitalize;
+            }
+
+            .highlight_sell {
+                color: var(--content-danger);
+                @include annote-s;
+                text-transform: capitalize;
+            }
+
+            .highlight_transfer {
+                color: var(--content-info);
+                @include annote-s;
+                text-transform: capitalize;
+            }
+        }
+
+        &_Header {
+            border-top: 1px solid var(--static-border-primary);
+            border-bottom: 1px solid var(--static-border-primary);
+            color: var(--content-muted);
+            @include label-s;
+            background-color: var(--static-surface-secondary);
+        }
+
+        &_Entry {
+            border-bottom: 1px solid var(--static-border-primary);
+            color: var(--content-secondary);
+            @include annote-s;
+        }
+    }
+
+
+}
+
+.positive {
+    color: var(--content-success);
+}
+
+.negative {
+    color: var(--content-danger);
+}

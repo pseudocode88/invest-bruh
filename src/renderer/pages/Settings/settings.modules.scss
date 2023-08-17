@@ -1,0 +1,7 @@
+@import '../../shared_styles/typography.scss';
+@import '../../shared_styles/layout.scss';
+
+.SettingsHeader {
+    padding: 40px 24px 40px 24px;
+    border-bottom: 1px solid var(--static-border-primary);
+}

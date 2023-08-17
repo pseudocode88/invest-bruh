@@ -15,9 +15,14 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import global from './global';
-import './comms';
 
+// IPC communication observers
+import './ipc/ipc.cashflow';
+import './ipc/ipc.assets';
+
+// DB Helper
 import CashFlowDBHelper from './helper/CashFlowDBHelper';
+import AssetsDBHelper from './helper/AssetsDBHelper';
 
 class AppUpdater {
   constructor() {
@@ -28,11 +33,13 @@ class AppUpdater {
 }
 
 global.dbHelper = {
-  cashFlow: new CashFlowDBHelper()
+  cashFlow: new CashFlowDBHelper(),
+  assets: AssetsDBHelper(),
 }
 
-let mainWindow = null;
+global.dbHelper.assets.init();
 
+let mainWindow = null;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');

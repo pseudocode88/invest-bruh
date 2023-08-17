@@ -32,6 +32,14 @@
         }
     }
 
+    .selected_neutral {
+        background-color: var(--content-info);
+
+        &:hover {
+            background-color: var(--content-info);
+        }
+    }
+
     li {
         @include strong-s;
         color: var(--content-primary);
@@ -47,5 +55,13 @@
         &:hover {
             background-color: var(--static-surface-tertiary);
         }
+    }
+}
+
+.UniSelect__Small {
+    li {
+        padding: 14px 12px;
+        @include strong-xs;
+        line-height: 1;
     }
 }

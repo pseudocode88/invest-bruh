@@ -28,6 +28,8 @@ export const Button = ({
                 return styles.Button_medium;
             case "small":
                 return styles.Button_small;
+            case "xsmall":
+                return styles.Button_xsmall;
             default:
                 return styles.Button_large;
         }

@@ -5,6 +5,12 @@
     @include flex(column, 40px);
 }
 
+// .FormWrapper {
+//     width: 500px;
+// }
+
 .FormWrapper {
-    width: 500px;
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
 }

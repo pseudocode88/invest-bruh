@@ -37,11 +37,8 @@
             @include flex(column, 4px);
             margin-bottom: 0;
             justify-content: space-between;
-            // align-items: center;
             padding: 40px 16px 12px 16px;
             border-bottom: 1px solid var(--static-border-primary);
-            // border-top-left-radius: 12px;
-            // border-top-right-radius: 12px;
 
             &_Year {
                 @include label-xxl;
@@ -62,8 +59,6 @@
         overflow: hidden;
         padding: 0;
         margin: 0;
-        // border-bottom-left-radius: 12px;
-        // border-bottom-right-radius: 12px;
 
         li {
             list-style: none;
@@ -88,7 +83,7 @@
 
             .cell_amount {
                 width: 20%;
-                // @include annote-s;
+                @include label-s;
                 text-align: right;
             }
 
@@ -96,6 +91,11 @@
                 @include flex(row, 24px);
                 width: 10%;
                 flex-grow: 0;
+            }
+
+            .cell_dollar {
+                float: left;
+                color: var(--content-muted);
             }
         }
 

@@ -33,3 +33,45 @@
         }
     }
 }
+
+.Form__Small {
+    @include flex(column, 20px);
+
+    .Form__Control {
+        @include flex(column, 8px);
+    }
+
+    .Form__Label {
+        @include strong-s;
+        margin: 0;
+        color: var(--content-secondary);
+
+        &Wrap {
+            @include flex(column, 2px);
+        }
+
+        &Helper {
+            @include annote-xs;
+            color: var(--content-muted);
+            margin: 0;
+        }
+    }
+
+    .Form__ButtonGroup {
+        @include flex(row, 24px);
+        margin-top: 16px;
+
+        button {
+            min-width: 180px;
+        }
+    }
+
+    .Form__ButtonGroupStrech {
+        @include flex(row, 24px);
+        margin-top: 16px;
+
+        button {
+            width: 100%;
+        }
+    }
+}

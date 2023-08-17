@@ -69,6 +69,12 @@
     line-height: 1.55;
 }
 
+@mixin body-xs {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
 /** Label **/
 @mixin annote-xxxl {
     font-weight: 500;
@@ -109,7 +115,7 @@
 @mixin annote-xs {
     font-weight: 500;
     font-size: 12px;
-    line-height: 1.55;
+    line-height: 1.5;
 }
 
 

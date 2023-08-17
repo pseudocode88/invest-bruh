@@ -1,0 +1,108 @@
+@import '../../../shared_styles/typography.scss';
+@import '../../../shared_styles/layout.scss';
+
+.AssetBar {
+    width: 240px;
+    border-right: 1px solid var(--static-border-primary);
+    box-sizing: border-box;
+    overflow-y: scroll;
+    // padding: 40px 0;
+    @include flex(column, 32px);
+    flex-shrink: 0;
+
+    &__Empty {
+        text-align: center;
+        height: calc(100vh - 42px);
+        @include flex(column, 4px);
+        justify-content: center;
+        padding: 0 24px;
+        background-color: var(--static-surface-secondary);
+
+        h2 {
+            @include strong-l;
+            color: var(--content-muted);
+            margin: 0;
+        }
+
+        p {
+            @include label-xs;
+            color: var(--content-muted);
+            margin: 0;
+            opacity: 0.5;
+        }
+    }
+}
+
+.AssetGroup {
+    // border: 1px solid var(--static-border-primary);
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+
+    &:first-child {
+        margin-top: 40px;
+
+        .AssetGroup__Header {
+            padding-top: 0;
+        }
+    }
+
+    &__Header {
+        padding: 16px 24px;
+
+        h4 {
+            @include strong-l;
+            color: var(--content-muted);
+            margin: 0;
+            margin-bottom: 2px;
+        }
+
+        p {
+            @include strong-xs;
+            color: var(--content-muted);
+            margin: 0;
+        }
+    }
+
+    &__List {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        &Item {
+            padding: 12px 24px;
+            margin: 0;
+            border: 1px dotted var(--static-border-primary);
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+
+            &:last-child {
+                border-bottom: 1px dotted var(--static-border-primary);
+            }
+
+            &:hover {
+                background-color: var(--static-surface-secondary);
+            }
+
+            &Selected {
+                background-color: var(--static-surface-tertiary);
+                border: 1px solid var(--static-border-primary);
+                border-left: 0;
+                border-right: 3px solid var(--content-brand);
+            }
+
+            p {
+                margin: 0;
+                color: var(--content-secondary);
+                @include annote-m;
+            }
+
+            span {
+                color: var(--content-muted);
+            }
+        }
+    }
+}

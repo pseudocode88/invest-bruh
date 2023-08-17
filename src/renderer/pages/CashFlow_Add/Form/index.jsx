@@ -72,6 +72,22 @@ export const Form = ({
         { name: 'Cash out', value: 'Cash out', color: 'red' }
     ];
 
+    const renderButton = () => {
+        if (edit) {
+            return (
+                <div className={formstyles.Form__ButtonGroup}>
+                    <Button name={"Update"}></Button>
+                    <Button type={"secondary"} variant={"neutral"} name={"Cancel"} onClick={handleCancel}></Button>
+                </div>
+            );
+        }
+        return (
+            <div className={formstyles.Form__Control}>
+                <Button name={"Update cash flow"}></Button>
+            </div>
+        );
+    }
+
     return (
         <form className={formstyles.Form} onSubmit={handleInvestSubmit}>
             <div className={formstyles.Form__Control}>
@@ -104,10 +120,7 @@ export const Form = ({
                 <TextInput type="text" placeholder="Eg: Monthly investment" value={source} defaultValue="10" onChange={handleSourceChange} />
             </div>
 
-            <div className={formstyles.Form__ButtonGroup}>
-                <Button name={(edit) ? "Update" : "Add"}></Button>
-                <Button type={"secondary"} variant={"neutral"} name={"Cancel"} onClick={handleCancel}></Button>
-            </div>
+            {renderButton()}
         </form>
     );
 }

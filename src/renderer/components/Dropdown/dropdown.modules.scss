@@ -1,0 +1,106 @@
+@import '../../shared_styles/typography.scss';
+@import '../../shared_styles/layout.scss';
+
+.Dropdown {
+    position: relative;
+
+    &__Field {
+        border: 1px solid var(--int-border-default);
+        color: var(--content-primary);
+        border-radius: 0;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: var(--int-surface-primary-default);
+        padding: 12px 12px;
+
+
+        @include flex(row, 16px);
+        align-items: center;
+
+        span {
+            flex-grow: 1;
+            @include body-s;
+            line-height: 1;
+        }
+
+        svg {
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid var(--int-border-focus);
+        }
+    }
+
+    &__List {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: var(--static-surface-primary);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 2;
+        color: var(--content-secondary);
+        display: none;
+        box-shadow: var(--shadow-black-elevated-1);
+
+        & li {
+            padding: 12px 12px;
+            cursor: pointer;
+            @include annote-s;
+
+            &:hover {
+                background-color: var(--static-surface-tertiary);
+            }
+        }
+
+        &Active {
+            outline: none;
+            background-color: var(--static-surface-tertiary);
+        }
+    }
+
+    &__NoError {
+        .TextInput__ErrorMessage {
+            display: none;
+        }
+    }
+
+    &__Error {
+        border-color: var(--int-border-invalid);
+
+        &Message {
+            display: block;
+            @include annote-s;
+            color: var(--content-danger);
+        }
+    }
+
+    &__Small {
+
+        .Dropdown__Field {
+            padding: 10px 10px;
+            @include strong-xs;
+            line-height: 1;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}
+
+.Dropdown_Show .Dropdown__List {
+    display: block;
+}
+
+.Dropdown_Show .Dropdown__Field svg {
+    transform: rotate(180deg);
+}
